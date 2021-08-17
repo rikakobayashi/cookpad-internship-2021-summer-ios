@@ -23,7 +23,25 @@ struct CartPageView: View {
                             Spacer()
                             Text("\(cartItem.product.price)円")
                             Spacer()
-                            Text("\(cartItem.quantity)個")
+                            HStack {
+                                Button(action: {
+                                    cartState.countDecrease(product: cartItem.product)
+                                }, label: {
+                                    Text("−").foregroundColor(Color.white)
+                                })
+//                                .padding(5.0)
+                                .background(Color.orange)
+//                                .cornerRadius(15.0)
+                                Text("\(cartItem.quantity)個")
+                                Button(action: {
+                                    cartState.countIncrease(product: cartItem.product)
+                                }, label: {
+                                    Text("＋").foregroundColor(Color.white)
+                                })
+//                                .padding(5.0)
+                                .background(Color.orange)
+//                                .cornerRadius(15.0)
+                            }
                         }
                         .padding(.vertical, 8)
                     }

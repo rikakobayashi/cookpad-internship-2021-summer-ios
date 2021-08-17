@@ -43,4 +43,27 @@ final class CartState: ObservableObject {
     func clear() {
         cartItems = []
     }
+    
+    func countIncrease(product: FetchProductsQuery.Data.Product) {
+        if let i = cartItems.firstIndex(where: { $0.product.id == product.id }) {
+            var cartItem = cartItems[i]
+            cartItem.quantity += 1
+            cartItems[i] = cartItem
+        } else {
+            return
+        }
+    }
+    
+    func countDecrease(product: FetchProductsQuery.Data.Product) {
+        if let i = cartItems.firstIndex(where: { $0.product.id == product.id }) {
+            var cartItem = cartItems[i]
+            cartItem.quantity -= 1
+            cartItems[i] = cartItem
+            if (cartItem.quantity == 0) {
+                cartItems.remove(at: i)
+            }
+        } else {
+            return
+        }
+    }
 }
