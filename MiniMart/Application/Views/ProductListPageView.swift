@@ -49,14 +49,14 @@ struct ProductListPageView: View {
                 }) {
                     VStack{
                         Image(systemName: "folder")
-                        Text(cartState.products.count.description)
+                        Text(cartState.getCartCount().description)
                     }
                 }
             }
         }
         .sheet(isPresented: $isCartViewPresented) {
             NavigationView {
-                CartPageView()
+                CartPageView(isCartViewPresented: $isCartViewPresented)
             }
         }
     }
