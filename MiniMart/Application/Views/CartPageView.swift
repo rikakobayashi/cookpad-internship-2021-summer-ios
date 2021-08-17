@@ -24,23 +24,23 @@ struct CartPageView: View {
                             Text("\(cartItem.product.price)円")
                             Spacer()
                             HStack {
-                                Button(action: {
-                                    cartState.countDecrease(product: cartItem.product)
-                                }, label: {
-                                    Text("−").foregroundColor(Color.white)
-                                })
-//                                .padding(5.0)
-                                .background(Color.orange)
-//                                .cornerRadius(15.0)
+                                Text("-")
+                                    .onTapGesture {
+                                        cartState.countDecrease(product: cartItem.product)
+                                    }
+                                    .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .background(Color.orange)
+                                    .cornerRadius(15)
+                                    .foregroundColor(Color.white)
                                 Text("\(cartItem.quantity)個")
-                                Button(action: {
-                                    cartState.countIncrease(product: cartItem.product)
-                                }, label: {
-                                    Text("＋").foregroundColor(Color.white)
-                                })
-//                                .padding(5.0)
-                                .background(Color.orange)
-//                                .cornerRadius(15.0)
+                                Text("＋")
+                                    .onTapGesture {
+                                        cartState.countIncrease(product: cartItem.product)
+                                    }
+                                    .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .background(Color.orange)
+                                    .cornerRadius(15)
+                                    .foregroundColor(Color.white)
                             }
                         }
                         .padding(.vertical, 8)
