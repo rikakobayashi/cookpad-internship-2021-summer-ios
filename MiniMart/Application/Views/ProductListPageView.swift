@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductListPageView: View {
     @State var products: [FetchProductsQuery.Data.Product] = []
     @State var isCartViewPresented: Bool = false
+    @EnvironmentObject var cartState: CartState
     
     var body: some View {
         List(products, id:\.id) { product in
@@ -46,7 +47,10 @@ struct ProductListPageView: View {
                 Button(action: {
                     self.isCartViewPresented = true
                 }) {
-                    Image(systemName: "folder")
+                    VStack{
+                        Image(systemName: "folder")
+                        Text(cartState.products.count.description)
+                    }
                 }
             }
         }
@@ -77,6 +81,9 @@ struct ProductListPageView_Previews: PreviewProvider {
     ]
     
     static var previews: some View {
-        ProductListPageView(products: products)
+        NavigationView {
+            ProductListPageView(products: products)
+        }
+        .environmentObject(CartState())
     }
 }

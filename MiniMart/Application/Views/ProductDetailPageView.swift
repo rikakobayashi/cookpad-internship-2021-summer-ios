@@ -8,10 +8,52 @@
 import SwiftUI
 
 struct ProductDetailPageView: View {
+    @State var isCartViewPresented: Bool = false
+    @EnvironmentObject var cartState: CartState
+    
     var product: FetchProductsQuery.Data.Product
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationTitle(product.name)
+        ScrollView {
+            RemoteImage(urlString: product.imageUrl)
+                .aspectRatio(contentMode: .fit)
+            VStack(alignment: .leading) {
+                Text(product.name)
+                    .font(.system(size: 20))
+                    .padding(.vertical, 10.0)
+                Text("\(product.price)円")
+                    .font(.system(size: 20))
+                    .padding(.vertical, 10.0)
+                Text(product.summary)
+                    .padding(.vertical, 10.0)
+                Button(action: {
+                    cartState.addProductToCart(product: product)
+                }){
+                    Text("カートに追加")
+                        .foregroundColor(Color.white)
+                }
+                .padding(.vertical, 16.0)
+                .frame(maxWidth: .infinity)
+                .background(Color.orange)
+                .cornerRadius(10.0)
+            }.padding(10.0)
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    self.isCartViewPresented = true
+                }) {
+                    VStack {
+                        Image(systemName: "folder")
+                        Text(cartState.products.count.description)
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $isCartViewPresented) {
+            NavigationView {
+                CartPageView()
+            }
+        }
     }
 }
 
@@ -28,5 +70,6 @@ struct ProductDetailPageView_Previews: PreviewProvider {
                 )
             )
         }
+        .environmentObject(CartState())
     }
 }
