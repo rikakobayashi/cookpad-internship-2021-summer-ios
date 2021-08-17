@@ -20,6 +20,8 @@
 		FD094E9126CB530100A984B5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD094E9026CB530100A984B5 /* API.swift */; };
 		FD7C4A5026CB5AAE005D1AFF /* ProductListPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C4A4F26CB5AAE005D1AFF /* ProductListPageView.swift */; };
 		FD7C4A5226CB6F97005D1AFF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C4A5126CB6F97005D1AFF /* Network.swift */; };
+		FD7C4A5426CB71E1005D1AFF /* ProductDetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C4A5326CB71E1005D1AFF /* ProductDetailPageView.swift */; };
+		FD7C4A5626CB7562005D1AFF /* CartPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C4A5526CB7562005D1AFF /* CartPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		FD094E9026CB530100A984B5 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FD7C4A4F26CB5AAE005D1AFF /* ProductListPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPageView.swift; sourceTree = "<group>"; };
 		FD7C4A5126CB6F97005D1AFF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		FD7C4A5326CB71E1005D1AFF /* ProductDetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPageView.swift; sourceTree = "<group>"; };
+		FD7C4A5526CB7562005D1AFF /* CartPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				FD7C4A4F26CB5AAE005D1AFF /* ProductListPageView.swift */,
+				FD7C4A5326CB71E1005D1AFF /* ProductDetailPageView.swift */,
+				FD7C4A5526CB7562005D1AFF /* CartPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,11 +334,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7C4A5026CB5AAE005D1AFF /* ProductListPageView.swift in Sources */,
+				FD7C4A5426CB71E1005D1AFF /* ProductDetailPageView.swift in Sources */,
 				11FD9CA62692B3A700BBCD33 /* UserDefaults+Codable.swift in Sources */,
 				FD7C4A5226CB6F97005D1AFF /* Network.swift in Sources */,
 				1152031526A66A7500555FBE /* ContentView.swift in Sources */,
 				11FD9CB72692C4BE00BBCD33 /* RemoteImage.swift in Sources */,
 				11A47030269404B000E9C8AD /* ProcessInfo+Extension.swift in Sources */,
+				FD7C4A5626CB7562005D1AFF /* CartPageView.swift in Sources */,
 				FD094E9126CB530100A984B5 /* API.swift in Sources */,
 				11FD9C632692A79600BBCD33 /* MiniMartApp.swift in Sources */,
 			);
